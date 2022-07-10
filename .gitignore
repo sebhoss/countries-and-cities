@@ -1,0 +1,4 @@
+.dolt/
+.idea/
+.tmp/
+work/*.json

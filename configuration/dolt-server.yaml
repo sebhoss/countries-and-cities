@@ -1,0 +1,19 @@
+log_level: info
+
+behavior:
+  read_only: false
+  autocommit: false
+
+user:
+  name: dolt
+  password: dolt
+
+listener:
+  host: localhost
+  port: 12345
+  max_connections: 10
+  read_timeout_millis: 28800000
+  write_timeout_millis: 28800000
+
+performance:
+  query_parallelism: 10
