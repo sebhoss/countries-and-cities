@@ -1,6 +1,6 @@
 # countries-and-cities
 
-[dolt](https://www.dolthub.com) for countries and their cities. Available at https://www.dolthub.com/repositories/sebhoss/countries-and-cities 
+[dolt](https://www.dolthub.com) for countries and their cities. Available at https://www.dolthub.com/repositories/sebhoss/countries-and-cities (data) and https://github.com/sebhoss/countries-and-cities (code).
 
 ## License
 
