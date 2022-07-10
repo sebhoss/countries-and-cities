@@ -1,6 +1,6 @@
-# cities-in-countries
+# countries-and-cities
 
-[dolt](https://www.dolthub.com) for cities in countries.
+[dolt](https://www.dolthub.com) for countries and their cities. Available at https://www.dolthub.com/repositories/sebhoss/countries-and-cities 
 
 ## License
 
