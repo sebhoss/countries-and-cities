@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS HubCity
+(
+    CityHashKey  VARCHAR(32),
+    LoadDate     DATETIME NOT NULL,
+    RecordSource VARCHAR(255) NOT NULL,
+    LastSeen     DATETIME NOT NULL,
+    CityCode     VARCHAR(5) UNIQUE NOT NULL COMMENT 'UN/LOCODE',
+    PRIMARY KEY (CityHashKey)
+);

@@ -2,3 +2,5 @@
 .idea/
 .tmp/
 work/*.json
+work/*.txt
+work/*.sql

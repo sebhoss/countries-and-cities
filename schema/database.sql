@@ -1,3 +1,3 @@
-create database countries_and_cities;
+CREATE DATABASE IF NOT EXISTS countries_and_cities;
 
-use countries_and_cities;
+USE countries_and_cities;

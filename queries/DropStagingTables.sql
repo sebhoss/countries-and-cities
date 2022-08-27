@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS HubCountryStaging;
+DROP TABLE IF EXISTS HubCityStaging;
