@@ -6,11 +6,15 @@ work/country-codes.txt:
 work/LoadHubCountryStaging.sql: work/country-codes.txt
 	while read -r name; do echo "INSERT INTO HubCountryStaging (LoadDate, RecordSource, CountryCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCountryStaging.sql; done < work/country-codes.txt
 
-work/german-city-codes.txt:
-	 curl --silent https://service.unece.org/trade/locode/de.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > work/german-city-codes.txt
+work/albania-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/al.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > work/albania-city-codes.txt
 
-work/LoadHubCityStaging.sql: work/german-city-codes.txt
-	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/german-city-codes.txt
+work/germany-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/de.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > work/germany-city-codes.txt
+
+work/LoadHubCityStaging.sql: work/albania-city-codes.txt work/germany-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/albania-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/germany-city-codes.txt
 
 
 .tmp/staging-tables-sentinel: work/LoadHubCountryStaging.sql work/LoadHubCityStaging.sql queries/CreateStagingTables.sql
