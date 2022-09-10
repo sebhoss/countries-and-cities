@@ -46,7 +46,7 @@ jobs:
         run: dolt creds import ${{ steps.dolthub_jwk.outputs.filePath }}
       - id: dolt_clone
         name: Clone Dolt Data
-        run: dolt clone sebhoss/countries-and-cities
+        run: dolt clone sebhoss/countries-and-cities .
       - id: dolt_migrate
         name: Migrate to new Database Format
         run: dolt migrate
