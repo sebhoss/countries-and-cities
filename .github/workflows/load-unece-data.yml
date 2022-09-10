@@ -47,9 +47,9 @@ jobs:
       - id: dolt_clone
         name: Clone Dolt Data
         run: dolt clone sebhoss/countries-and-cities .
-      - id: dolt_migrate
-        name: Migrate to new Database Format
-        run: dolt migrate
+#      - id: dolt_migrate
+#        name: Migrate to new Database Format
+#        run: dolt migrate
       - id: import_data
         name: Import UNECE Data
         run: make import
