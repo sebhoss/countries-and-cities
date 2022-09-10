@@ -30,18 +30,12 @@ jobs:
       - id: dolt
         name: Install Dolt
         uses: sebhoss/dolt-installer@v1
-      - id: countries
-        name: Load Countries
-        run: make work/LoadHubCountryStaging.sql
       - id: htmlq_verify
         name: Verify htmlq
         run: htmlq --version
       - id: dolt_verify
         name: Verify Dolt
         run: dolt version
-      - id: countries_verify
-        name: Verify Country Data
-        run: cat work/LoadHubCountryStaging.sql
       - id: dolthub_jwk
         name: Run Workflow
         uses: timheuer/base64-to-file@v1.1
@@ -53,3 +47,9 @@ jobs:
       - id: dolt_clone
         name: Clone Dolt Data
         run: dolt clone sebhoss/countries-and-cities
+      - id: import_data
+        name: Import UNECE Data
+        run: make import
+      - id: dolt_diff
+        name: Show Data Diff
+        run: dolt diff
