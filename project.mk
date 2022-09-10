@@ -6,14 +6,74 @@ work/country-codes.txt:
 work/LoadHubCountryStaging.sql: work/country-codes.txt
 	while read -r name; do echo "INSERT INTO HubCountryStaging (LoadDate, RecordSource, CountryCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCountryStaging.sql; done < work/country-codes.txt
 
+work/afghanistan-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/af.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/aland-island-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/ax.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
 work/albania-city-codes.txt:
-	 curl --silent https://service.unece.org/trade/locode/al.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > work/albania-city-codes.txt
+	 curl --silent https://service.unece.org/trade/locode/al.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/algeria-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/dz.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/american-samoa-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/dz.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/andorra-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/ad.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/angola-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/ao.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/anguilla-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/ao.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/antarctica-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/aq.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/antigua-barbuda-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/ag.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/argentina-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/ar.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/armenia-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/am.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/aruba-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/aw.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/australia-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/au.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/austria-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/at.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
+
+work/azerbaijan-city-codes.txt:
+	 curl --silent https://service.unece.org/trade/locode/az.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
 
 work/germany-city-codes.txt:
-	 curl --silent https://service.unece.org/trade/locode/de.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > work/germany-city-codes.txt
+	 curl --silent https://service.unece.org/trade/locode/de.htm | htmlq 'body > table:nth-child(3)' 'td:nth-child(2)' --remove-nodes 'body > table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1)' --text | sed 's/\xC2\xA0//g' > $@
 
-work/LoadHubCityStaging.sql: work/albania-city-codes.txt work/germany-city-codes.txt
+work/LoadHubCityStaging.sql: $(shell find work -type f -name '*-city-codes.txt')
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/aland-island-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/afghanistan-city-codes.txt
 	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/albania-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/algeria-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/american-samoa-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/andorra-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/angola-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/anguilla-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/antarctica-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/antigua-barbuda-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/argentina-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/armenia-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/aruba-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/australia-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/austria-city-codes.txt
+	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/azerbaijan-city-codes.txt
 	while read -r name; do echo "INSERT INTO HubCityStaging (LoadDate, RecordSource, CityCode) VALUES (STR_TO_DATE('${TIMESTAMP}', '%Y-%m-%d %H:%i:%s'), 'unece.org', '$${name}');" >> work/LoadHubCityStaging.sql; done < work/germany-city-codes.txt
 
 
