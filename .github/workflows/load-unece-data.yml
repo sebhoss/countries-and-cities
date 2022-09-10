@@ -10,6 +10,7 @@ on:
     - cron: 25 7 5 * *
 jobs:
   load:
+    name: Load Data
     runs-on: ubuntu-latest
     steps:
       - id: checkout
@@ -41,3 +42,11 @@ jobs:
       - id: countries-verify
         name: Verify Country Data
         run: cat work/LoadHubCountryStaging.sql
+      - id: dolthub_jwk
+        name: Run Workflow
+        uses: timheuer/base64-to-file@v1.1
+        with:
+          encodedString: ${{ secrets.DOLTHUB_JWK_BASE64 }}
+      - id: dolt-creds
+        name: Import Dolthub Credentials
+        run: dolt creds import ${{ steps.dolthub_jwk.outputs.filePath }}
