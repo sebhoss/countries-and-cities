@@ -6,6 +6,7 @@ on:
       - .github/workflows/load-unece-data.yml
       - queries/**
       - schema/**
+      - project.mk
   schedule:
     - cron: 25 7 5 * *
 jobs:
