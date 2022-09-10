@@ -32,3 +32,12 @@ jobs:
       - id: countries
         name: Load Countries
         run: make work/LoadHubCountryStaging.sql
+      - id: htmlq-verify
+        name: Verify htmlq
+        run: htmlq --version
+      - id: dolt-verify
+        name: Verify Dolt
+        run: dolt version
+      - id: countries-verify
+        name: Verify Country Data
+        run: cat work/LoadHubCountryStaging.sql
