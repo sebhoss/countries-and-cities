@@ -47,12 +47,15 @@ jobs:
       - id: dolt_clone
         name: Clone Dolt Data
         run: dolt clone sebhoss/countries-and-cities .
-#      - id: dolt_migrate
-#        name: Migrate to new Database Format
-#        run: dolt migrate
       - id: import_data
         name: Import UNECE Data
         run: make import
-      - id: dolt_diff
-        name: Show Data Diff
-        run: dolt diff
+      - id: dolt_add
+        name: Stage Data Changes
+        run: dolt add --all
+      - id: dolt_commit
+        name: Commit Data Changes
+        run: dolt commit --message 'automated import of UNECE data'
+      - id: dolt_push
+        name: Push Data Changes
+        run: dolt push origin main
