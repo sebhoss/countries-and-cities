@@ -33,13 +33,13 @@ jobs:
       - id: countries
         name: Load Countries
         run: make work/LoadHubCountryStaging.sql
-      - id: htmlq-verify
+      - id: htmlq_verify
         name: Verify htmlq
         run: htmlq --version
-      - id: dolt-verify
+      - id: dolt_verify
         name: Verify Dolt
         run: dolt version
-      - id: countries-verify
+      - id: countries_verify
         name: Verify Country Data
         run: cat work/LoadHubCountryStaging.sql
       - id: dolthub_jwk
@@ -47,6 +47,9 @@ jobs:
         uses: timheuer/base64-to-file@v1.1
         with:
           encodedString: ${{ secrets.DOLTHUB_JWK_BASE64 }}
-      - id: dolt-creds
+      - id: dolt_creds
         name: Import Dolthub Credentials
         run: dolt creds import ${{ steps.dolthub_jwk.outputs.filePath }}
+      - id: dolt_clone
+        name: Clone Dolt Data
+        run: dolt clone sebhoss/countries-and-cities
